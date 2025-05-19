@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.env
+.venv
+env/
+venv/
+dist/
+build/
+*.log
+
+# Poetry
+poetry.lock
+
+# VSCode/Cursor
+.vscode/
+.cursor/
+
+# MacOS
+.DS_Store
+
+# Docker
+*.pid
+*.db
+*.sqlite3
+
+# Rapports et artefacts
+reports/
+
+# Pytest
+.pytest_cache/
+
+# PDF split/outputs
+pdf_split-range/
+
+# Autres fichiers temporaires
+*.swp
+*.swo
