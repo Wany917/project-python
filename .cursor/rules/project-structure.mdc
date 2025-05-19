@@ -1,0 +1,43 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Structure du Projet IDS/IPS avec Scapy
+
+Ce projet implémente un système de détection et de prévention d'intrusion (IDS/IPS) utilisant la bibliothèque Scapy de Python. Il est conçu pour analyser le trafic réseau en temps réel, détecter les tentatives d'attaques et générer des rapports détaillés.
+
+## Structure des fichiers
+
+### Package Core (Fonctionnalités principales)
+- [src/module_1_scapy/core/capture.py](mdc:src/module_1_scapy/core/capture.py) - Module de capture de paquets réseau
+- [src/module_1_scapy/core/analyzer.py](mdc:src/module_1_scapy/core/analyzer.py) - Module d'analyse des protocoles
+- [src/module_1_scapy/core/detection.py](mdc:src/module_1_scapy/core/detection.py) - Module de détection d'attaques
+
+### Package Utils (Utilitaires)
+- [src/module_1_scapy/utils/tools.py](mdc:src/module_1_scapy/utils/tools.py) - Fonctions utilitaires générales
+- [src/module_1_scapy/utils/firewall.py](mdc:src/module_1_scapy/utils/firewall.py) - Gestion du pare-feu
+
+### Package Reporting (Génération de rapports)
+- [src/module_1_scapy/reporting/reporter.py](mdc:src/module_1_scapy/reporting/reporter.py) - Module de génération de rapports
+
+### Point d'entrée
+- [src/module_1_scapy/main.py](mdc:src/module_1_scapy/main.py) - Point d'entrée principal
+
+## Documentation
+
+- [README.md](mdc:README.md) - Documentation principale
+- [CONVENTIONS.md](mdc:CONVENTIONS.md) - Conventions de code
+
+## Configuration
+
+- [pyproject.toml](mdc:pyproject.toml) - Configuration du projet Poetry
+- [.pre-commit-config.yaml](mdc:.pre-commit-config.yaml) - Configuration pre-commit
+
+## Tests
+
+Le projet inclut des tests unitaires correspondant à la structure du code source:
+
+- [tests/module_1_scapy/core/test_analyzer.py](mdc:tests/module_1_scapy/core/test_analyzer.py) - Tests pour l'analyseur
+- [tests/module_1_scapy/core/test_detection.py](mdc:tests/module_1_scapy/core/test_detection.py) - Tests pour la détection
+- [tests/module_1_scapy/utils/test_tools.py](mdc:tests/module_1_scapy/utils/test_tools.py) - Tests pour les utilitaires

@@ -1,0 +1,64 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Workflow du Projet IDS/IPS
+
+Ce document décrit les principales fonctionnalités et le flux de travail de l'application IDS/IPS avec Scapy.
+
+## Composants principaux
+
+### Package Core
+
+1. **Capture de paquets** - [core/capture.py](mdc:src/module_1_scapy/core/capture.py)
+   - Utilise Scapy pour capturer le trafic réseau sur une interface spécifiée
+   - Permet de filtrer les paquets avec des filtres BPF
+
+2. **Analyse de protocoles** - [core/analyzer.py](mdc:src/module_1_scapy/core/analyzer.py)
+   - Identifie et compte les protocoles réseau utilisés
+   - Analyse les communications entre adresses IP
+
+3. **Détection d'attaques** - [core/detection.py](mdc:src/module_1_scapy/core/detection.py)
+   - Détecte les tentatives d'attaques comme l'injection SQL, l'ARP spoofing, etc.
+   - Fournit des informations détaillées sur les attaques
+
+### Package Utils
+
+4. **Utilitaires généraux** - [utils/tools.py](mdc:src/module_1_scapy/utils/tools.py)
+   - Configuration du logging
+   - Détection des interfaces réseau
+   - Validation d'adresses IP
+
+5. **Gestion du pare-feu** - [utils/firewall.py](mdc:src/module_1_scapy/utils/firewall.py)
+   - Fonctions de blocage d'IP malveillantes
+   - Support pour différents systèmes d'exploitation (Linux, macOS, Windows)
+
+### Package Reporting
+
+6. **Génération de rapports** - [reporting/reporter.py](mdc:src/module_1_scapy/reporting/reporter.py)
+   - Génère des graphiques avec PyGal
+   - Produit des rapports PDF avec les statistiques et les alertes de sécurité
+
+### Point d'entrée
+
+7. **Application principale** - [main.py](mdc:src/module_1_scapy/main.py)
+   - Analyse des arguments de ligne de commande
+   - Coordonne les composants pour exécuter l'application
+
+## Flux de travail
+
+1. L'utilisateur lance l'application via la ligne de commande
+2. Les paquets sont capturés en temps réel sur l'interface réseau spécifiée
+3. Chaque paquet est analysé pour identifier son protocole et détecter des attaques
+4. Les statistiques sont collectées pendant la capture
+5. Si une attaque est détectée, elle est enregistrée et l'attaquant peut être bloqué
+6. À la fin de la capture, un rapport PDF est généré avec les statistiques et les alertes
+
+## Tests
+
+Le projet inclut des tests unitaires pour chaque composant principal:
+
+- **Tests d'analyse** - [core/test_analyzer.py](mdc:tests/module_1_scapy/core/test_analyzer.py)
+- **Tests de détection** - [core/test_detection.py](mdc:tests/module_1_scapy/core/test_detection.py)
+- **Tests d'utilitaires** - [utils/test_tools.py](mdc:tests/module_1_scapy/utils/test_tools.py)

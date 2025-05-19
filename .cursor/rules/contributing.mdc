@@ -1,0 +1,57 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Guide de contribution au projet IDS/IPS
+
+Ce document décrit les bonnes pratiques à suivre pour contribuer au projet IDS/IPS avec Scapy.
+
+## Prérequis
+
+Avant de commencer à contribuer, assurez-vous d'avoir installé les outils suivants :
+
+- Python 3.13+
+- Poetry
+- pre-commit
+
+## Installation de l'environnement de développement
+
+1. Clonez le dépôt
+2. Installez les dépendances avec Poetry : `poetry install`
+3. Installez les hooks pre-commit : `pre-commit install`
+
+## Conventions de code
+
+Les conventions de code sont détaillées dans le fichier [CONVENTIONS.md](mdc:CONVENTIONS.md).
+
+Quelques points importants :
+- Utilisez le snake_case pour les noms de variables et de fonctions
+- Utilisez le CamelCase pour les noms de classes
+- Documentez toutes les fonctions et classes avec des docstrings
+- Chaque fonction doit avoir une seule responsabilité
+- Utilisez `logger` au lieu de `print` pour les logs
+
+## Tests
+
+Tous les nouveaux modules doivent être accompagnés de tests unitaires. Les tests sont écrits avec le framework unittest et suivent la structure Given/When/Then.
+
+Exemple : [test_analyzer.py](mdc:tests/module_1_scapy/test_analyzer.py)
+
+Pour exécuter les tests :
+```bash
+poetry run pytest
+```
+
+## Processus de contribution
+
+1. Créez une branche pour votre contribution
+2. Implémentez vos modifications
+3. Écrivez des tests pour vos modifications
+4. Assurez-vous que tous les tests passent
+5. Exécutez pre-commit pour vérifier le style de code
+6. Soumettez une pull request
+
+## Structure du projet
+
+Consultez [project-structure.mdc](mdc:.cursor/rules/project-structure.mdc) pour plus d'informations sur la structure du projet.
