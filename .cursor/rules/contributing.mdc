@@ -1,6 +1,6 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
 # Guide de contribution au projet IDS/IPS
@@ -55,3 +55,25 @@ poetry run pytest
 ## Structure du projet
 
 Consultez [project-structure.mdc](mdc:.cursor/rules/project-structure.mdc) pour plus d'informations sur la structure du projet.
+
+## Conventions de code (module 2)
+
+- Respecter la même structure modulaire que le module 1
+- Utiliser des docstrings pour toutes les classes et fonctions
+- Préciser l'architecture cible (x86, x64) dans les analyses de shellcode
+- Ne jamais committer de shellcode malveillant exécutable ou de binaire compilé
+- Pour l'émulation, privilégier Unicorn Engine (installable via Poetry)
+
+## Tests (module 2)
+
+- Chaque nouvelle fonctionnalité du module 2 doit être couverte par un test unitaire dans `tests/module_2_shellcode/`
+- Les tests doivent vérifier la robustesse face à des shellcodes invalides ou malformés
+
+## Processus de contribution (module 2)
+
+1. Créez une branche à partir de `Trunk` ou de la branche principale du module 2
+2. Implémentez vos modifications dans `src/module_2_shellcode/`
+3. Ajoutez ou adaptez les tests dans `tests/module_2_shellcode/`
+4. Vérifiez que tous les tests passent avec `poetry run pytest`
+5. Exécutez les hooks pre-commit
+6. Soumettez une pull request en détaillant la fonctionnalité ou l'analyse ajoutée

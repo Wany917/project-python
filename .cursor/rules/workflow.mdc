@@ -1,9 +1,9 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
-# Workflow du Projet IDS/IPS
+# Workflow du Projet IDS/IPS & Analyse Shellcode
 
 Ce document décrit les principales fonctionnalités et le flux de travail de l'application IDS/IPS avec Scapy.
 
@@ -62,3 +62,46 @@ Le projet inclut des tests unitaires pour chaque composant principal:
 - **Tests d'analyse** - [core/test_analyzer.py](mdc:tests/module_1_scapy/core/test_analyzer.py)
 - **Tests de détection** - [core/test_detection.py](mdc:tests/module_1_scapy/core/test_detection.py)
 - **Tests d'utilitaires** - [utils/test_tools.py](mdc:tests/module_1_scapy/utils/test_tools.py)
+
+### Module 2 : Analyse de shellcode (en développement)
+
+1. **Chargement de shellcode** - [core/loader.py](mdc:src/module_2_shellcode/core/loader.py)
+   - Charge des shellcodes depuis des fichiers binaires ou hexadécimaux
+
+2. **Analyse statique et dynamique** - [core/analyzer.py](mdc:src/module_2_shellcode/core/analyzer.py)
+   - Analyse la structure, l'entropie, les patterns du shellcode
+   - Peut lancer une émulation dynamique (Unicorn)
+
+3. **Désassemblage** - [core/disassembler.py](mdc:src/module_2_shellcode/core/disassembler.py)
+   - Désassemble le shellcode avec Capstone
+
+4. **Émulation** - [core/emulator.py](mdc:src/module_2_shellcode/core/emulator.py)
+   - Émule l'exécution du shellcode (Unicorn Engine)
+
+5. **Utilitaires** - [utils/tools.py](mdc:src/module_2_shellcode/utils/tools.py)
+   - Conversion hex/bytes, logging, helpers
+
+6. **Génération de rapports** - [reporting/reporter.py](mdc:src/module_2_shellcode/reporting/reporter.py)
+   - Génère des rapports d'analyse (PDF, texte, etc.)
+
+7. **Point d'entrée** - [main.py](mdc:src/module_2_shellcode/main.py)
+   - Analyse des arguments, coordination des composants
+
+## Flux de travail module 2
+
+1. L'utilisateur lance l'analyse de shellcode via la ligne de commande
+2. Le shellcode est chargé et validé
+3. Une analyse statique (désassemblage, entropie, patterns) est réalisée
+4. Une analyse dynamique (émulation) peut être lancée
+5. Un rapport d'analyse est généré
+
+## Tests
+
+Le module 2 inclut des tests unitaires pour chaque composant:
+
+- **Tests de chargement** - [core/test_loader.py](mdc:tests/module_2_shellcode/core/test_loader.py)
+- **Tests d'analyse** - [core/test_analyzer.py](mdc:tests/module_2_shellcode/core/test_analyzer.py)
+- **Tests de désassemblage** - [core/test_disassembler.py](mdc:tests/module_2_shellcode/core/test_disassembler.py)
+- **Tests d'émulation** - [core/test_emulator.py](mdc:tests/module_2_shellcode/core/test_emulator.py)
+- **Tests d'utilitaires** - [utils/test_tools.py](mdc:tests/module_2_shellcode/utils/test_tools.py)
+- **Tests de reporting** - [](mdc:tests/module_2_shellcode/reporting/test_reporter.py)

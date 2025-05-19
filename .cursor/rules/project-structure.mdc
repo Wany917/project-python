@@ -1,6 +1,6 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
 # Structure du Projet IDS/IPS avec Scapy
@@ -41,3 +41,26 @@ Le projet inclut des tests unitaires correspondant à la structure du code sourc
 - [tests/module_1_scapy/core/test_analyzer.py](mdc:tests/module_1_scapy/core/test_analyzer.py) - Tests pour l'analyseur
 - [tests/module_1_scapy/core/test_detection.py](mdc:tests/module_1_scapy/core/test_detection.py) - Tests pour la détection
 - [tests/module_1_scapy/utils/test_tools.py](mdc:tests/module_1_scapy/utils/test_tools.py) - Tests pour les utilitaires
+
+# Structure du projet
+
+Le projet est composé de deux modules principaux :
+
+## Module 1 : IDS/IPS réseau
+- [src/module_1_scapy/main.py](mdc:src/module_1_scapy/main.py) : point d'entrée IDS/IPS
+- [src/module_1_scapy/core/](mdc:src/module_1_scapy/core) : capture, analyse, détection
+- [src/module_1_scapy/reporting/](mdc:src/module_1_scapy/reporting) : génération de rapports
+- [src/module_1_scapy/utils/](mdc:src/module_1_scapy/utils) : outils, firewall, logging
+
+## Module 2 : Analyse de shellcode (en développement)
+- [src/module_2_shellcode/main.py](mdc:src/module_2_shellcode/main.py) : point d'entrée analyse shellcode
+- [src/module_2_shellcode/core/loader.py](mdc:src/module_2_shellcode/core/loader.py) : chargement de shellcode
+- [src/module_2_shellcode/core/analyzer.py](mdc:src/module_2_shellcode/core/analyzer.py) : analyse statique/dynamique
+- [src/module_2_shellcode/core/disassembler.py](mdc:src/module_2_shellcode/core/disassembler.py) : désassemblage (capstone)
+- [src/module_2_shellcode/core/emulator.py](mdc:src/module_2_shellcode/core/emulator.py) : émulation (unicorn)
+- [src/module_2_shellcode/reporting/reporter.py](mdc:src/module_2_shellcode/reporting/reporter.py) : rapport d'analyse
+- [src/module_2_shellcode/utils/tools.py](mdc:src/module_2_shellcode/utils/tools.py) : outils divers
+
+Les tests sont dans [tests/module_2_shellcode/](mdc:tests/module_2_shellcode).
+
+Voir aussi [CONVENTIONS.md](mdc:CONVENTIONS.md) pour les règles de nommage et de contribution.
