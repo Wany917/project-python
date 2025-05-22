@@ -81,3 +81,137 @@ poetry run pytest
 
 ## Licence
 Ce projet est distribué sous licence [LICENCE]. Voir le fichier LICENSE pour plus de détails.
+
+# Projet Sécurité Python
+
+Ce projet contient différents modules liés à la sécurité Python :
+
+1. **Module 1** - IDS/IPS avec Scapy : Système de détection et prévention d'intrusion basé sur Scapy
+2. **Module 2** - Analyse de Shellcode : Analyseur de shellcode avancé avec Pylibemu
+3. **Module 3** - Attaques Web : Automatisation d'attaques web avec Requests et résolution de CAPTCHA
+
+## Installation
+
+Assurez-vous d'avoir Python 3.8+ installé.
+
+1. Cloner le dépôt :
+   ```bash
+   git clone https://github.com/yourusername/module-1-scapy.git
+   cd module-1-scapy
+   ```
+
+2. Installer les dépendances avec Poetry :
+   ```bash
+   poetry install
+   ```
+
+3. Activer l'environnement virtuel :
+   ```bash
+   poetry shell
+   ```
+
+## Structure du projet
+
+Le projet est organisé en trois modules principaux :
+
+```
+module-1-scapy/
+├── src/
+│   ├── module_1_scapy/     # Module 1 - IDS/IPS avec Scapy
+│   ├── module_2_shellcode/ # Module 2 - Analyse de Shellcode
+│   └── module_3_web/       # Module 3 - Automatisation d'attaques web
+├── tests/                  # Tests unitaires
+├── pyproject.toml          # Configuration du projet
+└── README.md               # Documentation
+```
+
+## Module 1 - IDS/IPS avec Scapy
+
+Ce module implémente un système de détection et prévention d'intrusion réseau.
+
+### Fonctionnalités
+
+- Capture de trafic réseau en temps réel
+- Analyse de paquets et détection d'attaques
+- Filtrage et blocage de paquets malveillants
+- Génération de rapports
+
+### Utilisation
+
+```bash
+# Lancer l'IDS en mode détection
+poetry run ids --interface eth0
+
+# Lancer l'IDS en mode prévention
+poetry run ids --interface eth0 --prevent
+
+# Générer un rapport
+poetry run ids --interface eth0 --output report.pdf
+```
+
+## Module 2 - Analyse de Shellcode
+
+Ce module permet d'analyser du shellcode avec Pylibemu pour détecter les comportements malveillants.
+
+### Fonctionnalités
+
+- Analyse statique de shellcode
+- Émulation de shellcode pour détecter les comportements malveillants
+- Détection des techniques d'obfuscation
+- Génération de rapports d'analyse
+
+### Utilisation
+
+```bash
+# Analyser un fichier contenant du shellcode
+poetry run analyze-shellcode --file shellcode.bin
+
+# Analyser du shellcode depuis une chaîne hexadécimale
+poetry run analyze-shellcode --hex "\x90\x90\x90\xeb\x1e"
+```
+
+## Module 3 - Automatisation d'attaques web
+
+Ce module fournit des outils pour automatiser les tests de pénétration web.
+
+### Fonctionnalités
+
+- Fuzzing d'applications web
+- Automatisation de requêtes HTTP complexes
+- Résolution de CAPTCHA
+- Génération de rapports
+
+### Utilisation
+
+```bash
+# Effectuer du fuzzing sur une application web
+poetry run webattack fuzz --url https://exemple.com --wordlist wordlist.txt
+
+# Crawler un site web
+poetry run webattack crawl --url https://exemple.com --depth 3
+
+# Résoudre un CAPTCHA
+poetry run webattack captcha --image captcha.png
+```
+
+## Développement
+
+### Tests
+
+Pour exécuter les tests unitaires :
+
+```bash
+poetry run pytest
+```
+
+### Linting
+
+Pour vérifier le code avec pylint :
+
+```bash
+poetry run pylint src tests
+```
+
+## Licence
+
+Ce projet est sous licence MIT.

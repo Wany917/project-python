@@ -77,7 +77,7 @@ def parse_arguments() -> argparse.Namespace:
         action="store_true",
         help="Activer le blocage automatique des attaquants détectés"
     )
-    pxser.add_argument(
+    parser.add_argument(
         "--output-dir",
         default="reports",
         help="Répertoire de sortie pour les rapports et graphiques (défaut: reports)"

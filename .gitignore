@@ -18,6 +18,7 @@ poetry.lock
 
 # VSCode/Cursor
 .vscode/
+.cursor/
 
 # MacOS
 .DS_Store

@@ -19,7 +19,6 @@ class TestProtocolAnalyzer(unittest.TestCase):
         """Initialisation avant chaque test."""
         self.analyzer = ProtocolAnalyzer()
         
-        # Création de paquets fictifs pour les tests
         self.tcp_packet = Ether() / IP(src="192.168.1.1", dst="192.168.1.2") / TCP(sport=1234, dport=80)
         self.udp_packet = Ether() / IP(src="192.168.1.1", dst="192.168.1.2") / UDP(sport=1234, dport=53)
         self.icmp_packet = Ether() / IP(src="192.168.1.1", dst="192.168.1.2") / ICMP()
@@ -37,7 +36,7 @@ class TestProtocolAnalyzer(unittest.TestCase):
         self.assertIn("Ethernet", protocols)
         self.assertIn("IP", protocols)
         self.assertIn("TCP", protocols)
-        self.assertIn("HTTP", protocols)  # Car le port de destination est 80
+        self.assertIn("HTTP", protocols)  # 80
 
     def test_identify_protocols_udp(self):
         """Test de l'identification des protocoles pour un paquet UDP."""
